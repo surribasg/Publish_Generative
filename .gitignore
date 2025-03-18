@@ -1,0 +1,40 @@
+# Ignorar el entorno virtual
+venv/
+
+# Ignorar archivos de configuración local
+.env
+.env.example
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+#  Ignorar configuraciones de VS Code
+.vscode/
+
+# Archivos de dependencias temporales
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de logs
+logs/
+*.log
+
+# Ignorar bases de datos SQLite temporales (si usas)
+*.sqlite3
+*.db
+
+# Ignorar dependencias de Streamlit (carpeta de cache)
+.streamlit/
+
+# Evitar subir archivos de compilación
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Ignorar archivos innecesarios de Git
+.DS_Store
+Thumbs.db
