@@ -1,82 +1,125 @@
-# 📊 Inteligencia de Mercado con CrewAI
+# 📊 Market Intelligence with CrewAI
 
-Este proyecto utiliza **CrewAI**, **Ollama (Llama 3.1)** y **Streamlit** para analizar tendencias del mercado y generar estrategias basadas en datos reales de **Alpha Vantage**.
-
----
-
-## 🚀 Características
-
-- **Enfoque multiagente:** Orquestación de múltiples agentes de IA especializados que colaboran en un flujo de trabajo autónomo para el análisis de mercado.
-- **Integración con Alpha Vantage:** Consulta en tiempo real de datos bursátiles mediante su API.
-- **Uso de modelos de lenguaje (LLM):** Llama 3.1, ejecutado localmente con **Ollama**, analiza los datos financieros obtenidos.
-- **Arquitectura modular:** Código organizado en agentes, tareas y utilidades para facilitar la extensibilidad.
-- **Automatización del flujo de trabajo:** Desde la obtención de datos hasta la generación de reportes de análisis financiero.
+This project utilizes **CrewAI**, **Ollama (Llama 3.1)**, and **Streamlit** to analyze market trends and generate AI-driven strategies based on real-time data from **Alpha Vantage**.
 
 ---
 
-## 🔑 Configuración del token de Alpha Vantage
+## 📂 Project Structure
 
-Para utilizar datos de mercado en tiempo real, debes configurar tu **API Key** de **Alpha Vantage**.
+The following structure outlines the organization of files within the **PUBLISH_GENERATIVE** project.  
+Each file and directory serves a specific function for the correct execution of the market analysis system.
 
-### 1️⃣ Obtener tu API Key
-- Ve a [Alpha Vantage](https://www.alphavantage.co/support/#api-key) y regístrate para obtener una API Key gratuita.
-
-### 2️⃣ Configurar el token en un archivo `.env`
-- En la raíz del proyecto (`Publish_Generative`), **crea un archivo llamado `.env`**.
-- **Abre `.env` en un editor de texto** y agrega lo siguiente:  
-  ```plaintext
-  ALPHA_VANTAGE_API_KEY=TU_API_KEY_AQUI
-  ```
-
----
-
-## 📂 Estructura del Proyecto
-
-La siguiente estructura muestra cómo están organizados los archivos dentro del proyecto `Publish_Generative`.
-
-```plaintext
-PUBLISH_GENERATIVE/        # Directorio raíz del proyecto
-│-- app/                   # Carpeta principal de la aplicación
-│   │-- __pycache__/       # Archivos compilados de Python
-│   │-- __init__.py        # Marca el directorio como un paquete de Python
-│   │-- agents.py          # Define los agentes de IA en CrewAI
-│   │-- main.py            # Script principal para ejecutar la aplicación
-│   │-- tasks.py           # Define las tareas asignadas a los agentes
-│   │-- utils.py           # Funciones utilitarias para el proyecto
-│-- data/                  # Carpeta para almacenar archivos de datos
-│-- venv/                  # Entorno virtual (debe incluirse en .gitignore)
-│-- .env                   # Archivo de variables de entorno (API keys, configuraciones)
-│-- .gitignore             # Archivo para excluir elementos innecesarios en Git
-│-- estructura.md          # Documento que explica la estructura del proyecto
-│-- README.md              # Archivo principal de documentación
-│-- requirements.txt       # Lista de dependencias necesarias para el proyecto
+```
+PUBLISH_GENERATIVE/        # Root directory of the project
+│-- app/                   # Core application folder
+│   │-- __pycache__/       # Compiled Python files
+│   │-- __init__.py        # Marks the directory as a Python package
+│   │-- agents.py          # Defines AI agents in CrewAI
+│   │-- main.py            # Main script to run the application
+│   │-- tasks.py           # Defines tasks assigned to the agents
+│   │-- utils.py           # Utility functions for the project
+│-- data/                  # Folder for storing data files
+│-- venv/                  # Virtual environment (should be added to .gitignore)
+│-- .env                   # Environment variables file (API keys, configurations)
+│-- .gitignore             # File to exclude unnecessary elements in Git
+│-- structure.md           # Document explaining the project structure
+│-- README.md              # Main documentation file
+│-- requirements.txt       # Dependencies required for the project
 ```
 
 ---
 
-## 📥 Instalación y Ejecución del Proyecto
+## 🚀 Features
 
-Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
+✅ **Real-time market trend analysis** with **Alpha Vantage** data.  
+✅ **AI-based marketing strategy generation**.  
+✅ **Financial feasibility assessment** of business strategies.  
+✅ **Implemented using AI agents** with **CrewAI**.  
+✅ **Interactive interface with Streamlit**.
 
-### 1️⃣ Clonar el repositorio
+---
+
+## 🔑 Alpha Vantage API Key Setup
+
+To use real-time market data, you need to configure your **API Key** from **Alpha Vantage**.
+
+### 1️⃣ Obtain Your API Key
+- Go to [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and register for a free API Key.
+
+### 2️⃣ Configure the Token in a `.env` File
+- In the root directory of the project (`Publish_Generative`), **create a file named `.env`**.
+- **Open `.env` in a text editor** and add the following line:
+
+  ```plaintext
+  ALPHA_VANTAGE_API_KEY=YOUR_API_KEY_HERE
+  ```
+
+---
+
+## 📥 Installation and Execution
+
+Follow these steps to set up and run the project:
+
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/surribasg/Publish_Generative.git
 cd Publish_Generative
 ```
 
-### 2️⃣ Crear un entorno virtual e instalar dependencias
+### 2️⃣ Install Ollama and Llama 3.1
+Ollama is required to run Llama 3.1 locally.
+
+- **For macOS and Linux, run:**
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ```
+- **For Windows, download and install from:**
+  [https://ollama.com/download](https://ollama.com/download)
+
+- **Download the Llama 3.1 model:**
+  ```bash
+  ollama pull llama3
+  ```
+
+- **Run Ollama Serve (to use it as a local API):**
+  ```bash
+  ollama serve
+  ```
+
+### 3️⃣ Install Dependencies in a Virtual Environment
 ```bash
 python -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate  # Windows
+source venv/bin/activate  # Mac/Linux  
+venv\Scripts\activate  # Windows  
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Ejecutar la aplicación
+### 4️⃣ Run the Application
 ```bash
 streamlit run app.py
 ```
 
+---
 
+## 📊 How It Works
 
+This system uses **CrewAI** to automate stock market analysis through specialized AI agents:
 
+1. **Market Analyst:** Identifies market trends and stock patterns.
+2. **Marketing Strategist:** Develops a marketing strategy based on detected trends.
+3. **Financial Consultant:** Evaluates the economic feasibility of the proposed strategies.
+
+Each agent works independently, leveraging AI to generate insights and business recommendations.
+
+---
+
+## 📝 Contribution & Improvements
+
+This project is open for improvement! You can:
+- Optimize agent prompts
+- Add new data sources
+- Integrate additional financial analysis techniques
+
+If you have ideas for making the system more efficient, feel free to collaborate!
+
+🔗 **GitHub Repository:** [https://github.com/surribasg/Publish_Generative](https://github.com/surribasg/Publish_Generative)
